@@ -1,12 +1,12 @@
-package practice.phrases.mvvm.view
+package practice.phrases.mvvm.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
-import practice.phrases.mvvm.R
 import practice.phrases.mvvm.databinding.ActivityMainBinding
-import practice.phrases.mvvm.viewmodel.QuoteViewModel
+import practice.phrases.mvvm.ui.viewmodel.QuoteViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +18,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         initObserves()
         initActions()
-        quoteViewModel.randomQuote()
+        quoteViewModel.onCreate()
+
 
 
     }
@@ -28,6 +30,10 @@ class MainActivity : AppCompatActivity() {
         quoteViewModel.quoteModel.observe(this, Observer { currentQuote ->
             binding.tvQuote.text = currentQuote.quote
             binding.tvAuthor.text = currentQuote.author
+        })
+
+        quoteViewModel.isLoading.observe(this, Observer { load ->
+            binding.loading.isVisible = load
         })
 
     }

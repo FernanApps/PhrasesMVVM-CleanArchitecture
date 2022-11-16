@@ -4,6 +4,8 @@ buildscript {
         fragment_version = "1.5.4"
         activity_version = "1.6.1"
         lifecycle_version = "2.5.1"
+        retrofit_version = "2.9.0"
+        coroutine_version = "1.6.4"
     }
 }
 
