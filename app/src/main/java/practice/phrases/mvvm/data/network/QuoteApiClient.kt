@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface QuoteApiClient {
 
     @GET("/FernanApps/PhrasesApi/quotes")
-    suspend fun getAllQuotes(): Response<List<QuoteModel>>
+    suspend fun getAllQuotes(): Response<List<QuoteModel>?>
 
 }

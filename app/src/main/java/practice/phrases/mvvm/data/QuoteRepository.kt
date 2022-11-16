@@ -1,19 +1,39 @@
 package practice.phrases.mvvm.data
 
-import practice.phrases.mvvm.data.model.QuoteModel
-import practice.phrases.mvvm.data.model.QuoteProvider
+import com.google.gson.annotations.SerializedName
+import practice.phrases.mvvm.data.database.dao.QuoteDao
+import practice.phrases.mvvm.data.database.entities.QuoteEntity
 import practice.phrases.mvvm.data.network.QuoteService
+import practice.phrases.mvvm.domain.model.Quote
+import practice.phrases.mvvm.domain.model.toDomain
 import javax.inject.Inject
 
 class QuoteRepository @Inject constructor(
     private val api: QuoteService,
-    private val quoteProvider: QuoteProvider
+    private val quoteDao: QuoteDao
 
     ) {
 
-    suspend fun getAllQuotes():List<QuoteModel>{
+    suspend fun getAllQuotesFromApi():List<Quote>{
         val response = api.getQuotes()
-        quoteProvider.quotes = response
-        return response
+        return response.map { quoteModel ->
+            quoteModel.toDomain()
+        }
     }
+
+    suspend fun getAllQuotesFromDatabase(): List<Quote> {
+        val response = quoteDao.getAllQuotes()
+        return response.map { quoteEntity ->
+            quoteEntity.toDomain()
+        }
+    }
+
+    suspend fun insertQuotes(quote : List<QuoteEntity>){
+        return quoteDao.insertAll(quote)
+    }
+
+    suspend fun clearQuotes() {
+        quoteDao.deleteAllQuotes()
+    }
+
 }

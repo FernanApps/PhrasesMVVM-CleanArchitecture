@@ -1,17 +1,15 @@
 package practice.phrases.mvvm.domain
 
 import practice.phrases.mvvm.data.QuoteRepository
-import practice.phrases.mvvm.data.model.QuoteModel
-import practice.phrases.mvvm.data.model.QuoteProvider
+import practice.phrases.mvvm.domain.model.Quote
 import javax.inject.Inject
 
 class GetRandomUseCase @Inject constructor(
-    private val quoteProvider: QuoteProvider
+    private val repository: QuoteRepository
 ) {
-    //private val quoteRepository = QuoteRepository()
 
-    operator fun invoke(): QuoteModel?{
-        val quotes = quoteProvider.quotes
+    suspend operator fun invoke(): Quote?{
+        val quotes = repository.getAllQuotesFromDatabase()
         if(!quotes.isNullOrEmpty()){
             return quotes.random()
         }

@@ -10,7 +10,7 @@ class QuoteService @Inject constructor(private val apiClient: QuoteApiClient){
 
     //private val retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getQuotes(): List<QuoteModel>{
+    suspend fun getQuotes(): List<QuoteModel> {
         return withContext(Dispatchers.IO){
             val response =  apiClient.getAllQuotes()
             response.body() ?: emptyList()
