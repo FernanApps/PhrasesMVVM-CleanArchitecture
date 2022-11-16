@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Pharases MVVM"
+rootProject.name = "Phrases MVVM"
 include ':app'
