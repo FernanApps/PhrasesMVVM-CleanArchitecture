@@ -5,9 +5,11 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
+import dagger.hilt.android.AndroidEntryPoint
 import practice.phrases.mvvm.databinding.ActivityMainBinding
 import practice.phrases.mvvm.ui.viewmodel.QuoteViewModel
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
