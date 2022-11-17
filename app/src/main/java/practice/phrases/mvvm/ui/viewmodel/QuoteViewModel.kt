@@ -8,18 +8,22 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import practice.phrases.mvvm.domain.GetQuotesUseCase
-import practice.phrases.mvvm.domain.GetRandomUseCase
+import practice.phrases.mvvm.domain.GetRandomQuoteUseCase
 import practice.phrases.mvvm.domain.model.Quote
 import javax.inject.Inject
 
 @HiltViewModel
 class QuoteViewModel @Inject constructor(
     private var getQuotesUseCase: GetQuotesUseCase,
-    private var getRandomUseCase: GetRandomUseCase,
+    private var getRandomUseCase: GetRandomQuoteUseCase,
 ) : ViewModel() {
 
     private val _quoteModel = MutableLiveData<Quote>()
     val quoteModel: LiveData<Quote> get() = _quoteModel
+
+
+
+
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> get() = _isLoading
@@ -54,6 +58,11 @@ class QuoteViewModel @Inject constructor(
         }
 
     }
+
+    fun setQuoteModel(value: Quote){
+        _quoteModel.value = value
+    }
+
 
 
 }

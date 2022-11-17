@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import practice.phrases.mvvm.core.baseUrl
+import practice.phrases.mvvm.core.Constants.baseUrl
 import practice.phrases.mvvm.data.network.QuoteApiClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -12,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetWorkModule {
+object NetworkModule {
 
     @Singleton
     @Provides

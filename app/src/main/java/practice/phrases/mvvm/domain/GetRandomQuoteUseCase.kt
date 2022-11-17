@@ -4,7 +4,7 @@ import practice.phrases.mvvm.data.QuoteRepository
 import practice.phrases.mvvm.domain.model.Quote
 import javax.inject.Inject
 
-class GetRandomUseCase @Inject constructor(
+class GetRandomQuoteUseCase @Inject constructor(
     private val repository: QuoteRepository
 ) {
 
