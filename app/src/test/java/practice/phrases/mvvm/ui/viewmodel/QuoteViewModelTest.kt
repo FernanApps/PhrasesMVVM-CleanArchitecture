@@ -1,8 +1,6 @@
 package practice.phrases.mvvm.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -11,7 +9,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
-import org.junit.Assert.*
 
 import org.junit.After
 import org.junit.Before
@@ -19,7 +16,8 @@ import org.junit.Rule
 import org.junit.Test
 import practice.phrases.mvvm.domain.GetQuotesUseCase
 import practice.phrases.mvvm.domain.GetRandomQuoteUseCase
-import practice.phrases.mvvm.domain.model.Quote
+import practice.phrases.domain.model.Quote
+import practice.phrases.mvvm.ui.main.QuoteViewModel
 
 
 @ExperimentalCoroutinesApi

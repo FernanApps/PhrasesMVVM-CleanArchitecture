@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Phrases MVVM"
 include ':app'
+include ':domain'
+include ':data'

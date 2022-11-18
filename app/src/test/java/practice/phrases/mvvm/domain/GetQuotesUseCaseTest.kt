@@ -3,19 +3,18 @@ package practice.phrases.mvvm.domain
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.impl.annotations.MockK
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import practice.phrases.mvvm.data.QuoteRepository
-import practice.phrases.mvvm.domain.model.Quote
+import practice.phrases.data.repository.QuoteRepositoryImp
+import practice.phrases.domain.model.Quote
+import practice.phrases.domain.usecase.GetQuotesUseCase
 
 class GetQuotesUseCaseTest{
 
     @RelaxedMockK
-    lateinit var quoteRepository: QuoteRepository
+    lateinit var quoteRepository: QuoteRepositoryImp
 
     lateinit var getQuotesUseCase: GetQuotesUseCase
 

@@ -4,15 +4,14 @@ import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.runBlocking
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import practice.phrases.mvvm.data.QuoteRepository
-import practice.phrases.mvvm.domain.model.Quote
+import practice.phrases.data.repository.QuoteRepositoryImp
+import practice.phrases.domain.model.Quote
 
 class GetRandomUseCaseTest{
     @RelaxedMockK
-    private lateinit var quoteRepository: QuoteRepository
+    private lateinit var quoteRepository: QuoteRepositoryImp
     lateinit var getRandomQuoteUseCase: GetRandomQuoteUseCase
     @Before
     fun onBefore() {
